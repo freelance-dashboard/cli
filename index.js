@@ -1,11 +1,12 @@
 const cli = require('cac')();
 //commands class
-const CreateFreelo = require('./src/commands/create')
+const CreateFreelo = require('./src/commands/create');
+const AuthenticationFreelo = require('./src/commands/authentication');
 
 cli.command('auth', 'generate first auth user in aplication')
     .example('freelo auth')
     .action(() => {
-     
+     AuthenticationFreelo.questionTypeLoginUser();
     })
 
 
