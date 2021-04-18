@@ -22,6 +22,9 @@ class AuthenticationFrelo {
         })
     }
 
+    /**
+     * @description message to options
+     */
     questionTypeLoginUser() {
         console.log('select type authentication')
         typeAuthentication.forEach(typeAuth => (console.log(`${typeAuth.index} - ${typeAuth.type}`)));
