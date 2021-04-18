@@ -1,4 +1,4 @@
-{
+  {
   "name": "cli",
   "version": "0.0.1",
   "description": "",
@@ -11,7 +11,7 @@
     "url": "git+https://github.com/freelance-dashboard/cli.git"
   },
   "author": "freelance-dashboard",
-  "license": "MIT",
+  "license": "ISC",
   "bugs": {
     "url": "https://github.com/freelance-dashboard/cli/issues"
   },
