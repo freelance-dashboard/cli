@@ -5,7 +5,7 @@ import User from '../user'
 
 
 const testAuthGmail: Promise<responseLogin> = Promise.resolve({ status: 201, message: 'complete info user' })
-const testAuthUserAndPassword: Promise<responseLogin> = Promise.resolve({ status: 201, message: 'complete info user' })
+const testAuthUserAndPassword: Promise<responseLogin> = Promise.resolve({ status: 200, message: 'succesfull' })
 
 const readLineEvent = readline.createInterface({
     input: process.stdin,
@@ -22,7 +22,8 @@ class AuthenticationFreelo {
 
     static orchestador(): void {
         const option: number | void = this.authenticationUser();
-        if (option === 0) this.authGmail();
+        if (option === 0) this.authGmail;
+        else if (option === 1) this.authPassAndUser;
     }
 
     /**
@@ -40,14 +41,29 @@ class AuthenticationFreelo {
     }
 
     /**
-     * @description that is a resolve Promise function login
-     * @param {String} valueType type auth user
+     * @description that is a resolve Promise function login gmail
      */
     static authGmail(): void {
         testAuthGmail.then((response: responseLogin) => {
-            if (response.status === 201) User.updateUser();
-            else console.log(response.message)
+            this.finallySecuency(response);
         })
+    }
+
+    /**
+   * @description that is a resolve Promise function login authPassword
+   */
+    static authPassAndUser(): void {
+        testAuthUserAndPassword.then((response: responseLogin) => {
+            this.finallySecuency(response);
+        })
+    }
+
+    /**
+     * @description  that is a implement usser call update
+     */
+    static finallySecuency(response: responseLogin): void {
+        if (response.status === 201) User.updateUser();
+        else console.log(response.message)
     }
 }
 
