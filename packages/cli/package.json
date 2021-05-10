@@ -1,0 +1,40 @@
+{
+  "name": "@freelance-dashboard/cli",
+  "version": "0.1.0",
+  "description": "Freelance dashboard command line tool",
+  "main": "dist/cli.js",
+  "module": "dist/cli.mjs",
+  "types": "dist/cli.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/cli.mjs",
+      "require": "./dist/cli.js"
+    },
+    "./package.json": "./package.json",
+    "./": "./"
+  },
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mockpiler/mockpilerjs.git",
+    "directory": "packages/compiler"
+  },
+  "author": "Camilo Rodríguez <aeroxmotion@hotmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mockpiler/mockpilerjs/issues"
+  },
+  "homepage": "https://github.com/mockpiler/mockpilerjs#readme",
+  "keywords": [
+    "cli",
+    "freelance-dashboard"
+  ],
+  "dependencies": {
+    "@internal/cmd": "workspace:^0.0.0",
+    "cac": "^6.7.3",
+    "ink": "^3.0.8",
+    "react": "^17.0.2"
+  }
+}

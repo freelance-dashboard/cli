@@ -1,0 +1,5 @@
+packages:
+  # Public packages
+  - packages/**
+  # Internal packages
+  - internal/**

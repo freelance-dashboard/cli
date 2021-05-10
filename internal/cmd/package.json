@@ -1,0 +1,20 @@
+{
+  "name": "@internal/cmd",
+  "version": "0.0.0",
+  "main": "index.ts",
+  "private": true,
+  "description": "Freelance Dashboard CLI Commands",
+  "author": "Camilo Rodríguez <aeroxmotion@hotmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@internal/ui": "workspace:^0.0.0",
+    "cac": "*",
+    "ink": "*",
+    "react": "*"
+  },
+  "peerDependencies": {
+    "cac": "*",
+    "ink": "*",
+    "react": "*"
+  }
+}
