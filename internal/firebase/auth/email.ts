@@ -16,23 +16,7 @@ export interface UserCredentials extends EmailCredentials {
   familyName: string
 }
 
-export function assertValidEmailCredentials(credentials: EmailCredentials) {
-  if (!credentials.email || credentials.password) {
-    throw new Error('Both `email` and `password` are required')
-  }
-}
-
-export function assertValidUserCredentials(credentials: UserCredentials) {
-  assertValidEmailCredentials(credentials)
-
-  if (!credentials.givenName || !credentials.familyName) {
-    throw new Error('Both your `given name` and `family name` are required')
-  }
-}
-
 export async function loginWithEmailCredentials(credentials: EmailCredentials) {
-  assertValidEmailCredentials(credentials)
-
   return signInWithEmailAndPassword(
     getAuth(),
     credentials.email,
@@ -43,8 +27,6 @@ export async function loginWithEmailCredentials(credentials: EmailCredentials) {
 export async function registerWithEmailCredentials(
   credentials: UserCredentials
 ) {
-  assertValidUserCredentials(credentials)
-
   const userCredential = await createUserWithEmailAndPassword(
     getAuth(),
     credentials.email,

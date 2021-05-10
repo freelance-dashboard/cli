@@ -1,6 +1,7 @@
 import type { CAC } from 'cac'
-import { render } from 'ink'
 import { LoginScreen } from '@internal/ui'
+
+import { renderScreen } from '../../utils'
 
 export function registerLoginCommand(cli: CAC) {
   cli
@@ -8,7 +9,6 @@ export function registerLoginCommand(cli: CAC) {
       'login',
       'Login with your email and password (other providers available soon)'
     )
-    .action(() => {
-      render(<LoginScreen />)
-    })
+    .alias('l')
+    .action(() => renderScreen(<LoginScreen />))
 }

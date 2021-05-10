@@ -31,12 +31,14 @@ importers:
       '@internal/firebase': workspace:^0.0.0
       cac: '*'
       ink: '*'
+      ink-spinner: ^4.0.2
       ink-text-input: ^4.0.1
       react: '*'
     dependencies:
       '@internal/firebase': link:../firebase
       cac: 6.7.3
       ink: 3.0.8_react@17.0.2
+      ink-spinner: 4.0.2_ink@3.0.8+react@17.0.2
       ink-text-input: 4.0.1_ink@3.0.8+react@17.0.2
       react: 17.0.2
 
@@ -625,6 +627,11 @@ packages:
       restore-cursor: 3.1.0
     dev: false
 
+  /cli-spinners/2.6.0:
+    resolution: {integrity: sha512-t+4/y50K/+4xcCRosKkA7W4gTr1MySvLV0q+PxmG7FJ5g+66ChKurYjxBCjHggHH3HA5Hh9cy+lcUGWDqVH+4Q==}
+    engines: {node: '>=6'}
+    dev: false
+
   /cli-truncate/2.1.0:
     resolution: {integrity: sha512-n8fOixwDD6b/ObinzTrp1ZKFzbgvKZvuz/TvejnLn1aQfC6r52XEx85FmuC+3HI+JM7coBRXUvNqEU2PHVrHpg==}
     engines: {node: '>=8'}
@@ -763,6 +770,18 @@ packages:
 
   /inherits/2.0.4:
     resolution: {integrity: sha512-k/vGaX4/Yla3WzyMCvTQOXYeIHvqOKtnqBduzTHpzpQZzAskKMhZ2K+EnBiSM9zGSoIFeMpXKxa4dYeZIQqewQ==}
+    dev: false
+
+  /ink-spinner/4.0.2_ink@3.0.8+react@17.0.2:
+    resolution: {integrity: sha512-vQGmhWUEh3IG1IxK1Hl2w6RfH6aaRIJWw9lrG8CvFFyrQ23UpJ8GClJs5/sFBxkNvsrrK9sKNEGlGnsqTYiUww==}
+    engines: {node: '>=10'}
+    peerDependencies:
+      ink: '>=3.0.5'
+      react: '>=16.8.2'
+    dependencies:
+      cli-spinners: 2.6.0
+      ink: 3.0.8_react@17.0.2
+      react: 17.0.2
     dev: false
 
   /ink-text-input/4.0.1_ink@3.0.8+react@17.0.2:

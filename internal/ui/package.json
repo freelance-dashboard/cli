@@ -10,6 +10,7 @@
     "@internal/firebase": "workspace:^0.0.0",
     "cac": "*",
     "ink": "*",
+    "ink-spinner": "^4.0.2",
     "ink-text-input": "^4.0.1",
     "react": "*"
   },
