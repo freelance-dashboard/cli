@@ -17,7 +17,7 @@ const types: Array<typeAuthentication> = [
     { index: 1, type: 'username and password' },
 ]
 
-class AuthenticationFreelo {
+class AuthenticationCommand {
 
 
     static orchestador(): void {
@@ -68,4 +68,4 @@ class AuthenticationFreelo {
 }
 
 
-export default AuthenticationFreelo;
+export default AuthenticationCommand;

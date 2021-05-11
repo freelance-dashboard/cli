@@ -1,14 +1,14 @@
 
 
-class CreateFreelo {
+class CreateCommand {
 
     /**
      * @param {String} name name project
      * @param {String} organization name organizatión proyect
      */
-    static createProject({name, organization}) {
+    static createProject({ name, organization }: any) {
         console.log(name, organization)
     }
 }
 
-module.exports = CreateFreelo;
+export default CreateCommand;
