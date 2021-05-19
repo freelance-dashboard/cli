@@ -8,15 +8,17 @@
   "license": "MIT",
   "dependencies": {
     "@internal/firebase": "workspace:^0.0.0",
-    "cac": "*",
-    "ink": "*",
+    "cac": "^6.7.3",
+    "ink": "^3.0.8",
     "ink-spinner": "^4.0.2",
     "ink-text-input": "^4.0.1",
-    "react": "*"
+    "react": "^16"
   },
   "peerDependencies": {
-    "cac": "*",
-    "ink": "*",
-    "react": "*"
+    "cac": "^6.7.3",
+    "ink": "^3.0.8",
+    "ink-spinner": "^4.0.2",
+    "ink-text-input": "^4.0.1",
+    "react": "^16"
   }
 }

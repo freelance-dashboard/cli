@@ -13,13 +13,40 @@ const getEmptyCredentials = (): EmailCredentials => ({
 // TODO: Simple regex for now (maybe wrong)
 const EMAIL_REGEX = /^[^@]+@[^@]+/
 
+enum LoginState {
+  NOT_LOGGED,
+  LOGGING_IN,
+  LOGIN_ERROR,
+  LOGIN_SUCCESSFUL
+}
+
+const renderLoggingIn = () => (
+  <Text>
+    <Text color="green">
+      <Spinner type="dots" />
+    </Text>{' '}
+    Logging in...
+  </Text>
+)
+
+const renderLoggingError = () => (
+  <Text color="green">
+    ❌{'  '}An error ocurred while logging in. (See `fd-debug.log`)
+  </Text>
+)
+
+const renderLoggingSuccessful = () => (
+  <Text color="green">✔️{'  '}Logged sucessfully</Text>
+)
+
 export const LoginScreen: React.FC = () => {
   const app = useApp()
 
   const [credentials, setCredentials] = useState(getEmptyCredentials)
   const [showPassword, setShowPassword] = useState(false)
-  const [loggingIn, setLoggingIn] = useState(false)
-  const [logged, setLogged] = useState(false)
+  const [currentLoginState, setCurrentLoginState] = useState(
+    LoginState.NOT_LOGGED
+  )
 
   const updateCredentials = (nextCredentials: Partial<EmailCredentials>) => {
     setCredentials({
@@ -37,41 +64,26 @@ export const LoginScreen: React.FC = () => {
   }
 
   const doLogin = async () => {
-    setLoggingIn(true)
+    setCurrentLoginState(LoginState.LOGGING_IN)
 
     try {
       await loginWithEmailCredentials(credentials)
 
-      setLogged(true)
+      setCurrentLoginState(LoginState.LOGIN_SUCCESSFUL)
 
       // Wait for `Logged successfully` message to render
       setTimeout(() => {
         app.exit()
       }, 50)
     } catch (error) {
+      setCurrentLoginState(LoginState.LOGIN_ERROR)
+
       setShowPassword(false)
       setCredentials(getEmptyCredentials)
     }
-
-    setLoggingIn(false)
   }
 
-  if (loggingIn) {
-    return (
-      <Text>
-        <Text color="green">
-          <Spinner type="dots" />
-        </Text>{' '}
-        Logging in...
-      </Text>
-    )
-  }
-
-  if (logged) {
-    return <Text color="green">✔️ Logged sucessfully</Text>
-  }
-
-  return (
+  const renderForm = () => (
     <Box flexDirection="column">
       <LabeledInput
         label={
@@ -82,6 +94,7 @@ export const LoginScreen: React.FC = () => {
         value={credentials.email}
         onChange={email => updateCredentials({ email })}
         onSubmit={onEmailSubmit}
+        focus={!showPassword}
       />
 
       {showPassword && (
@@ -95,8 +108,18 @@ export const LoginScreen: React.FC = () => {
           value={credentials.password}
           onChange={password => updateCredentials({ password })}
           onSubmit={doLogin}
+          focus={showPassword}
         />
       )}
     </Box>
   )
+
+  const renderFunctions: Record<LoginState, () => React.ReactElement> = {
+    [LoginState.LOGGING_IN]: renderLoggingIn,
+    [LoginState.LOGIN_ERROR]: renderLoggingError,
+    [LoginState.LOGIN_SUCCESSFUL]: renderLoggingSuccessful,
+    [LoginState.NOT_LOGGED]: renderForm
+  }
+
+  return renderFunctions[currentLoginState]()
 }

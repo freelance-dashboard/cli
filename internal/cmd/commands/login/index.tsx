@@ -1,3 +1,4 @@
+import React from 'react'
 import type { CAC } from 'cac'
 import { LoginScreen } from '@internal/ui'
 

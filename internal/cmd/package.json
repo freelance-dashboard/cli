@@ -8,13 +8,13 @@
   "license": "MIT",
   "dependencies": {
     "@internal/ui": "workspace:^0.0.0",
-    "cac": "*",
-    "ink": "*",
-    "react": "*"
+    "cac": "^6.7.3",
+    "ink": "^3.0.8",
+    "react": "^16"
   },
   "peerDependencies": {
-    "cac": "*",
-    "ink": "*",
-    "react": "*"
+    "cac": "^6.7.3",
+    "ink": "^3.0.8",
+    "react": "^16"
   }
 }

@@ -2,7 +2,9 @@
   "name": "@freelance-dashboard/cli",
   "version": "0.1.0",
   "description": "Freelance dashboard command line tool",
-  "bin": "dist/bin.js",
+  "bin": {
+    "fd": "dist/bin.js"
+  },
   "files": [
     "dist"
   ],
@@ -24,7 +26,10 @@
   "dependencies": {
     "@internal/cmd": "workspace:^0.0.0",
     "cac": "^6.7.3",
+    "firebase": "^9.0.0-beta.1",
     "ink": "^3.0.8",
-    "react": "^17.0.2"
+    "ink-spinner": "^4.0.2",
+    "ink-text-input": "^4.0.1",
+    "react": "^16"
   }
 }
